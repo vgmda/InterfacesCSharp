@@ -27,4 +27,16 @@ class Program
             PhoneNumber = "3123123"
         };
     }
+
+    private static List<PhysicalProductModel> AddSampleData()
+    {
+        List<PhysicalProductModel> output = new List<PhysicalProductModel>();
+
+        output.Add(new PhysicalProductModel { Title = "RTX 3090" });
+        output.Add(new PhysicalProductModel { Title = "Dublin T-Shirt" });
+        output.Add(new PhysicalProductModel { Title = "SSD 1Tb" });
+        output.Add(new PhysicalProductModel { Title = "iPhone 15 Pro 5Tb" });
+
+        return output;
+    }
 }
