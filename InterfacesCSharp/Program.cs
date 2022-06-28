@@ -1,9 +1,10 @@
 ﻿
 using DemoLibrary;
 
-class Program
+
+public class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         List<PhysicalProductModel> cart = AddSampleData();
         CustomerModel customer = GetCustomer();
