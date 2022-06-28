@@ -1,11 +1,12 @@
-﻿namespace ConsoleUI;
+﻿
+using DemoLibrary;
 
 class Program
 {
     static void Main(string[] args)
     {
         List<PhysicalProductModel> cart = AddSampleData();
-        CustomerModel customer = GetGustomer();
+        CustomerModel customer = GetCustomer();
 
         foreach (PhysicalProductModel prod in cart)
         {
