@@ -1,13 +1,27 @@
 ﻿using System;
 namespace DemoLibrary;
 
-public class DigitalProductModel
+public class DigitalProductModel : IProductModel
 {
     public string Title { get; set; }
 
+    public bool HasOrderBeenCompleted { get; private set; }
+
+    public int TotalDownloadsLeft { get; private set; } = 5;
+
     public void ShipItem(CustomerModel customer)
     {
-        Console.WriteLine($"Simulating emailing {Title} to {customer.EmailAddress}");
+        if (HasOrderBeenCompleted == false)
+        {
+
+            Console.WriteLine($"Simulating emailing {Title} to {customer.EmailAddress}");
+            TotalDownloadsLeft -= 1;
+            if (TotalDownloadsLeft < 1)
+            {
+                HasOrderBeenCompleted = true;
+                TotalDownloadsLeft = 0;
+            }
+        }
     }
 }
 
