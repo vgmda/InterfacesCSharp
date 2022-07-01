@@ -1,7 +1,7 @@
 ﻿using System;
 namespace DemoLibrary;
 
-public class CustomerModel
+public class CustomerModel : ICustomerModel
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -9,5 +9,6 @@ public class CustomerModel
     public string City { get; set; }
     public string EmailAddress { get; set; }
     public string PhoneNumber { get; set; }
+
 }
 
