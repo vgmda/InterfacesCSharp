@@ -13,6 +13,13 @@ public class Program
         foreach (IProductModel prod in cart)
         {
             prod.ShipItem(customer);
+
+            // If IProduct Model also implements IDigitalProductModel
+            if (prod is IDigitalProductModel digital)
+            {
+                Console.WriteLine($"For the {digital.Title} you have {digital.TotalDownloadsLeft} downloads left.");
+
+            }
         }
 
         Console.ReadLine();
@@ -44,6 +51,9 @@ public class Program
         output.Add(new DigitalProductModel { Title = "Lesson Source Code" });
         output.Add(new DigitalProductModel { Title = "Game Key Activation" });
         output.Add(new DigitalProductModel { Title = "Monthly Subscription Key" });
+
+        // Course Products
+        output.Add(new CourseProductModel { Title = "Programming For Beginners" });
 
 
         return output;
