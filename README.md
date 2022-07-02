@@ -23,9 +23,9 @@ static void Main()
 
 ### Importance of interfaces
 
-`PhysicalProductModel.cs`
+`PhysicalProductModel` consists of signatures that are implemented from `IProductModel` but then are expanded. 
 
-```c$
+```c#
 public class PhysicalProductModel : IProductModel
 {
     public string Title { get; set; }
@@ -42,3 +42,32 @@ public class PhysicalProductModel : IProductModel
     }
 }
 ```
+`DigitalProductModel` consists of signatures that are implemented from `IDigitalProductModel` but then are expanded.
+
+```c#
+public class DigitalProductModel : IDigitalProductModel
+{
+    public string Title { get; set; }
+
+    public bool HasOrderBeenCompleted { get; private set; }
+
+    public int TotalDownloadsLeft { get; private set; } = 5;
+
+    public void ShipItem(CustomerModel customer)
+    {
+        if (HasOrderBeenCompleted == false)
+        {
+
+            Console.WriteLine($"Simulating emailing {Title} to {customer.EmailAddress}");
+            TotalDownloadsLeft -= 1;
+            if (TotalDownloadsLeft < 1)
+            {
+                HasOrderBeenCompleted = true;
+                TotalDownloadsLeft = 0;
+            }
+        }
+    }
+}
+```
+
+Both models are implementing an interface according to their product type. 
