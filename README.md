@@ -6,17 +6,39 @@ Using interface-based design concepts provides loose coupling, component-based p
 
 ### Example
 
-The code below loads sample data that I created into the interfaces called IProductModel. There are two types of products, physycal and digital. 
-I then instantiate a class called Customer 
-
+The code below loads sample data that I created into the interfaces called IProductModel. There are two types of products, physical and digital. 
+I then create a class object called Customer and populate it with test data. The purpose of the foreach is to loop through each product within the cart and execute ShipItem() which simulates the shipping by outputting a message.
 ```c#
 static void Main()
-    {
-        List<IProductModel> cart = AddSampleData();
-        CustomerModel customer = GetCustomer();
+{
+    List<IProductModel> cart = AddSampleData();
+    CustomerModel customer = GetCustomer();
 
-        foreach (IProductModel prod in cart)
+    foreach (IProductModel prod in cart)
+    {
+        prod.ShipItem(customer);
+    }
+}
+```
+
+### Importance of interfaces
+
+`PhysicalProductModel.cs`
+
+```c$
+public class PhysicalProductModel : IProductModel
+{
+    public string Title { get; set; }
+
+    public bool HasOrderBeenCompleted { get; private set; }
+
+    public void ShipItem(CustomerModel customer)
+    {
+        if (HasOrderBeenCompleted == false)
         {
-            prod.ShipItem(customer);
+            Console.WriteLine($"Simulating shipping {Title} to {customer.FirstName} in {customer.City}");
+            HasOrderBeenCompleted = true;
         }
     }
+}
+```
