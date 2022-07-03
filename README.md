@@ -97,4 +97,10 @@ private static List<IProductModel> AddSampleData()
 }
 ```
 This allows us to distinguish between different types of products. (e.g Physical, Digital, Course)
-Each product has its own Model: `PhysicalProductModel.cs`, `DigitalProductModel`, `CourseProductModel`, therefore each model implements a corresponding interface in order to inherit signatures that are required for each product model to function.
+Each product has its own Model: `PhysicalProductModel`, `DigitalProductModel`, `CourseProductModel`, therefore each model implements a corresponding interface in order to inherit signatures that are required for each product model to function.
+
+### List of interfaces:
+`ICustomerModel`
+`IDigitalProductModel`
+`IProductModel`
+Each interface is trying to capture similarities among unrelated classes without artificially forcing a class relationship.
