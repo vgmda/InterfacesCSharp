@@ -103,4 +103,5 @@ Each product has its own Model: `PhysicalProductModel`, `DigitalProductModel`, `
 `ICustomerModel`
 `IDigitalProductModel`
 `IProductModel`
+
 Each interface is trying to capture similarities among unrelated classes without artificially forcing a class relationship.
