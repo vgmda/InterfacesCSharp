@@ -71,3 +71,30 @@ public class DigitalProductModel : IDigitalProductModel
 ```
 
 Both models are implementing an interface according to their product type. 
+
+Within `Program.cs` I populate the `List<IProductModel>`:
+```c#
+private static List<IProductModel> AddSampleData()
+{
+    List<IProductModel> output = new List<IProductModel>();
+
+    // Physical Products
+    output.Add(new PhysicalProductModel { Title = "RTX 3090" });
+    output.Add(new PhysicalProductModel { Title = "Dublin T-Shirt" });
+    output.Add(new PhysicalProductModel { Title = "SSD 1Tb" });
+    output.Add(new PhysicalProductModel { Title = "iPhone 15 Pro 5Tb" });
+
+    // Digital Products
+    output.Add(new DigitalProductModel { Title = "Lesson Source Code" });
+    output.Add(new DigitalProductModel { Title = "Game Key Activation" });
+    output.Add(new DigitalProductModel { Title = "Monthly Subscription Key" });
+
+    // Course Products
+    output.Add(new CourseProductModel { Title = "Programming For Beginners" });
+
+
+    return output;
+}
+```
+This allows us to distinguish between different types of products. (e.g Physical, Digital, Course)
+Each product has its own Model: `PhysicalProductModel.cs`, `DigitalProductModel`, `CourseProductModel`, therefore each model implements a corresponding interface in order to inherit signatures that are required for each product model to function.
