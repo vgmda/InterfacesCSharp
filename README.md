@@ -105,3 +105,25 @@ Each product has its own Model: `PhysicalProductModel`, `DigitalProductModel`, `
 `IProductModel`
 
 Each interface is trying to capture similarities among unrelated classes without artificially forcing a class relationship.
+An interface can also implement another interface. In this case, I have `IProductModel` which is the master interface and `IDigitalProductModel` implants it. 
+
+`IProductModel`
+```c#
+public interface IProductModel
+{
+    // Signatures
+    string Title { get; set; }
+
+    bool HasOrderBeenCompleted { get; }
+
+    void ShipItem(CustomerModel customer);
+}
+```
+`IDigitalProductModel`
+```c#
+public interface IDigitalProductModel : IProductModel
+{
+    int TotalDownloadsLeft { get; }
+}
+```
+The interface above uses the exact same signatures as `IProductModel` but extends by adding `TotalDownloadsLeft` property for digital products only. 
