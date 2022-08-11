@@ -1,10 +1,10 @@
-# InterfacesCSharp
+## InterfacesCSharp
 
 > An interface is a contract between itself and any class that implements it. This contract states that any class that implements the interface will implement the interface's properties, methods and/or events. An interface contains no implementation, only the signatures of the functionality the interface provides. An interface can contain signatures of methods, properties, indexers, and events. 
 
 Using interface-based design concepts provides loose coupling, component-based programming, easier maintainability, makes your code base more scalable and makes code reuse much more accessible because the implementation is separated from the interface.
 
-### Example
+## Example
 
 The code below loads sample data that I created into the interfaces called IProductModel. There are two types of products, physical and digital. 
 I then create a class object called Customer and populate it with test data. The purpose of the foreach is to loop through each product within the cart and execute ShipItem() which simulates the shipping by outputting a message.
@@ -21,7 +21,7 @@ static void Main()
 }
 ```
 
-### Importance of interfaces
+## Importance of interfaces
 
 `PhysicalProductModel` consists of signatures that are implemented from `IProductModel` but then are expanded. 
 
@@ -99,7 +99,7 @@ private static List<IProductModel> AddSampleData()
 This allows us to distinguish between different types of products. (e.g Physical, Digital, Course)
 Each product has its own Model: `PhysicalProductModel`, `DigitalProductModel`, `CourseProductModel`, therefore each model implements a corresponding interface in order to inherit signatures that are required for each product model to function.
 
-### List of interfaces:
+## List of interfaces:
 `ICustomerModel`
 `IDigitalProductModel`
 `IProductModel`
